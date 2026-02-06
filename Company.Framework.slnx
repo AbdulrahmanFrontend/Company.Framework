@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="BaseControls/BaseControls.csproj" Id="3bb28638-42c4-4afb-a518-6b0d9ceda50d" />
+  <Project Path="BLL/BLL.csproj" Id="c5ee53f7-4338-41d3-9a1d-21175e4a1c60" />
+  <Project Path="DAL/DAL.csproj" Id="aadd127e-6c55-4945-a956-9e40e312f984" />
+  <Project Path="LL/LL.csproj" Id="53f9cb22-6576-48ae-b33b-fbed216722fe" />
+</Solution>
