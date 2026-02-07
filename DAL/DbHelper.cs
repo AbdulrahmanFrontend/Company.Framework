@@ -44,10 +44,11 @@ namespace Company.Framework.DAL
                     try
                     {
                         con.Open();
-                        SqlDataReader reader = cmd.ExecuteReader();
-                        if(reader.HasRows)
-                        {
-                            dt.Load(reader);
+                        using(SqlDataReader reader = cmd.ExecuteReader()){
+                            if(reader.HasRows)
+                            {
+                                dt.Load(reader);
+                            }
                         }
                     }
                     catch (Exception ex)
