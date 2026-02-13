@@ -46,13 +46,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{51182286-2392-4128-9b66-05b2053cabea}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DataAccessSettings\DataAccessSettings.csproj">
       <Project>{97683d6e-628f-4ad0-ad34-d643a19b4eb6}</Project>
       <Name>DataAccessSettings</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DTO\Core.csproj">
-      <Project>{51182286-2392-4128-9b66-05b2053cabea}</Project>
-      <Name>Core</Name>
     </ProjectReference>
     <ProjectReference Include="..\LL\LL.csproj">
       <Project>{53f9cb22-6576-48ae-b33b-fbed216722fe}</Project>

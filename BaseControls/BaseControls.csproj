@@ -56,7 +56,7 @@
       <Project>{c5ee53f7-4338-41d3-9a1d-21175e4a1c60}</Project>
       <Name>BLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DTO\Core.csproj">
+    <ProjectReference Include="..\Core\Core.csproj">
       <Project>{51182286-2392-4128-9b66-05b2053cabea}</Project>
       <Name>Core</Name>
     </ProjectReference>
