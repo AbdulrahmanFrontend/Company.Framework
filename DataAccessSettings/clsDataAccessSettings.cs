@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL
+namespace DataAccessSettings
 {
-    public class Class1
+    public class clsDataAccessSettings
     {
+        public static string ConnectionString { get; set; }
     }
 }

@@ -6,12 +6,13 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Core;
+using DataAccessSettings;
 
-namespace Company.Framework.DAL
+namespace DAL
 {
     public class DbHelper
     {
-        public static string ConnectionString { get; set; }
         private static SqlCommand _PrepareCommand(SqlConnection con, string query,
             SqlParameter[] parameters)
         {
@@ -33,11 +34,12 @@ namespace Company.Framework.DAL
             SqlParameter[] parameters = null)
         {
             DataTable dt = new DataTable();
-            if (string.IsNullOrWhiteSpace(ConnectionString))
+            if (string.IsNullOrWhiteSpace(clsDataAccessSettings.ConnectionString))
             { 
                 throw new InvalidOperationException("Connection string is not set."); 
             }
-            using (SqlConnection con = new SqlConnection(ConnectionString))
+            using (SqlConnection con = 
+                new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
                 using (SqlCommand cmd = _PrepareCommand(con, query, parameters))
                 {
@@ -67,11 +69,12 @@ namespace Company.Framework.DAL
         }
         public static object GetScalar(string query, SqlParameter[] parameters = null)
         {
-            if (string.IsNullOrWhiteSpace(ConnectionString))
+            if (string.IsNullOrWhiteSpace(clsDataAccessSettings.ConnectionString))
             {
                 throw new InvalidOperationException("Connection string is not set.");
             }
-            using (SqlConnection con = new SqlConnection(ConnectionString))
+            using (SqlConnection con = 
+                new SqlConnection(clsDataAccessSettings.ConnectionString))
             {
                 using (SqlCommand cmd = _PrepareCommand(con, query, parameters))
                 {
@@ -91,11 +94,12 @@ namespace Company.Framework.DAL
         public static int ExecuteNonQuery(string query, 
             SqlParameter[] parameters = null)
         {
-            if (string.IsNullOrWhiteSpace(ConnectionString))
+            if (string.IsNullOrWhiteSpace(clsDataAccessSettings.ConnectionString))
             {
                 throw new InvalidOperationException("Connection string is not set.");
             }
-            using (SqlConnection con = new SqlConnection(ConnectionString))
+            using (SqlConnection con = new 
+                SqlConnection(clsDataAccessSettings.ConnectionString))
             {
                 using (SqlCommand cmd = _PrepareCommand(con, query, parameters))
                 {
