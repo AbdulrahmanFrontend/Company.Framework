@@ -1,4 +1,4 @@
-﻿namespace BaseControls
+﻿namespace BaseUI
 {
     partial class UserControl1
     {

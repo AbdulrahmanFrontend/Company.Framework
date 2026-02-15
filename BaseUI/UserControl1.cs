@@ -7,10 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Core;
-using BLL;
 
-namespace BaseControls
+namespace BaseUI
 {
     public partial class UserControl1: UserControl
     {

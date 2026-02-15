@@ -31,6 +31,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Core">
+      <HintPath>..\Core\bin\Debug\Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DAL">
+      <HintPath>..\DAL\bin\Debug\DAL.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,18 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="clsBaseBusiness.cs" />
+    <Compile Include="clsHashGenerator.cs" />
     <Compile Include="clsValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj">
-      <Project>{51182286-2392-4128-9b66-05b2053cabea}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DAL\DAL.csproj">
-      <Project>{aadd127e-6c55-4945-a956-9e40e312f984}</Project>
-      <Name>DAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\LL\LL.csproj">
       <Project>{53f9cb22-6576-48ae-b33b-fbed216722fe}</Project>
       <Name>LL</Name>

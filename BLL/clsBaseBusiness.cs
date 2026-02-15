@@ -11,24 +11,31 @@ namespace BLL
 {
     public abstract class clsBaseBusiness
     {
-        public clsEnums.enMode Mode { get; protected set; } = clsEnums.enMode.enAddNew;
+        public clsEnums.enMode Mode { get; protected set; }
+        public virtual clsResult Validate() => clsResult.Success();
         protected abstract bool _AddNew();
         protected abstract bool _Update();
-        public bool Save()
+        public clsResult Save()
         {
+            if (!Validate().IsSuccess)
+            {
+                return clsResult.Failure(Validate().Message);
+            }
             switch (Mode)
             {
                 case clsEnums.enMode.enAddNew:
                     if (_AddNew())
                     {
                         Mode = clsEnums.enMode.enUpdate;
-                        return true;
+                        return clsResult.Success("Saved Successfully");
                     }
-                    return false;
+                    return clsResult.Failure("Insert Failed");
                 case clsEnums.enMode.enUpdate:
-                    return _Update();
+                    return _Update() ? 
+                        clsResult.Success("Updated Successfully") : 
+                        clsResult.Failure("Update Failed");
                 default:
-                    return false;
+                    return clsResult.Failure("Invalid Mode");
             }
         }
     }

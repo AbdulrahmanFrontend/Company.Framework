@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AADD127E-6C55-4945-A956-9E40E312F984}</ProjectGuid>
+    <ProjectGuid>{BD93863D-EBBF-42DA-9526-4ADA9FF78BE3}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Company.Framework.DAL</RootNamespace>
-    <AssemblyName>Company.Framework.DAL</AssemblyName>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -31,6 +31,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Core">
+      <HintPath>..\Core\bin\Debug\Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DataAccessSettings">
+      <HintPath>..\DataAccessSettings\bin\Debug\DataAccessSettings.dll</HintPath>
+    </Reference>
+    <Reference Include="LL">
+      <HintPath>..\LL\bin\Debug\LL.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,23 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="clsBaseRepository.cs" />
     <Compile Include="DbHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Core\Core.csproj">
-      <Project>{51182286-2392-4128-9b66-05b2053cabea}</Project>
-      <Name>Core</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DataAccessSettings\DataAccessSettings.csproj">
-      <Project>{97683d6e-628f-4ad0-ad34-d643a19b4eb6}</Project>
-      <Name>DataAccessSettings</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LL\LL.csproj">
-      <Project>{53f9cb22-6576-48ae-b33b-fbed216722fe}</Project>
-      <Name>LL</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

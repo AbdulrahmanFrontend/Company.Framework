@@ -30,23 +30,27 @@ namespace DAL
             }
             return cmd;
         }
+        private static SqlConnection _GetConnection()
+        {
+            if (string.IsNullOrWhiteSpace(clsDataAccessSettings.ConnectionString))
+            {
+                throw new InvalidOperationException("Connection string is not set.");
+            }
+            return new SqlConnection(clsDataAccessSettings.ConnectionString);
+        }
         public static DataTable GetDataTable(string query, 
             SqlParameter[] parameters = null)
         {
             DataTable dt = new DataTable();
-            if (string.IsNullOrWhiteSpace(clsDataAccessSettings.ConnectionString))
-            { 
-                throw new InvalidOperationException("Connection string is not set."); 
-            }
-            using (SqlConnection con = 
-                new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlConnection con = _GetConnection())
             {
                 using (SqlCommand cmd = _PrepareCommand(con, query, parameters))
                 {
                     try
                     {
                         con.Open();
-                        using(SqlDataReader reader = cmd.ExecuteReader()){
+                        using(SqlDataReader reader = cmd.ExecuteReader())
+                        {
                             if(reader.HasRows)
                             {
                                 dt.Load(reader);
@@ -70,12 +74,7 @@ namespace DAL
         }
         public static object GetScalar(string query, SqlParameter[] parameters = null)
         {
-            if (string.IsNullOrWhiteSpace(clsDataAccessSettings.ConnectionString))
-            {
-                throw new InvalidOperationException("Connection string is not set.");
-            }
-            using (SqlConnection con = 
-                new SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlConnection con = _GetConnection())
             {
                 using (SqlCommand cmd = _PrepareCommand(con, query, parameters))
                 {
@@ -95,12 +94,7 @@ namespace DAL
         public static int ExecuteNonQuery(string query, 
             SqlParameter[] parameters = null)
         {
-            if (string.IsNullOrWhiteSpace(clsDataAccessSettings.ConnectionString))
-            {
-                throw new InvalidOperationException("Connection string is not set.");
-            }
-            using (SqlConnection con = new 
-                SqlConnection(clsDataAccessSettings.ConnectionString))
+            using (SqlConnection con = _GetConnection())
             {
                 using (SqlCommand cmd = _PrepareCommand(con, query, parameters))
                 {

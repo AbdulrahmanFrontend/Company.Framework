@@ -23,7 +23,8 @@ namespace BLL
         }
         public static bool IsWithinLength(string Value, int Min, int Max)
         {
-            return Value.Length >= Min && Value.Length <= Max;
+            return !string.IsNullOrEmpty(Value) && Value.Length >= Min 
+                && Value.Length <= Max;
         }
         public static bool IsEmptyOrWithinLength(string Value, int Min, int Max)
         {
@@ -33,10 +34,10 @@ namespace BLL
         {
             return Value > 0;
         }
-        public static bool IsValidDateOfBirth(DateTime DateOfBirth)
+        public static bool IsValidDateOfBirth(DateTime? DateOfBirth)
         {
-            return DateOfBirth < DateTime.Now &&
-                DateOfBirth > DateTime.Now.AddYears(-120);
+            return DateOfBirth.HasValue && DateOfBirth <= DateTime.Now.Date &&
+                DateOfBirth >= DateTime.Now.Date.AddYears(-120);
         }
     }
 }
