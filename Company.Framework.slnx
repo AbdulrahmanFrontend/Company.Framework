@@ -3,6 +3,5 @@
   <Project Path="BLL/BLL.csproj" Id="c5ee53f7-4338-41d3-9a1d-21175e4a1c60" />
   <Project Path="Core/Core.csproj" Id="0f8d14c0-d0a9-46dc-8857-5318bb8a0092" />
   <Project Path="DAL/DAL.csproj" Id="bd93863d-ebbf-42da-9526-4ada9ff78be3" />
-  <Project Path="DataAccessSettings/DataAccessSettings.csproj" Id="97683d6e-628f-4ad0-ad34-d643a19b4eb6" />
   <Project Path="LL/LL.csproj" Id="53f9cb22-6576-48ae-b33b-fbed216722fe" />
 </Solution>

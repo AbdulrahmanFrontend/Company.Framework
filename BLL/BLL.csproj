@@ -21,6 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\BLL.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -33,9 +34,6 @@
   <ItemGroup>
     <Reference Include="Core">
       <HintPath>..\Core\bin\Debug\Core.dll</HintPath>
-    </Reference>
-    <Reference Include="DAL">
-      <HintPath>..\DAL\bin\Debug\DAL.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -53,6 +51,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{bd93863d-ebbf-42da-9526-4ada9ff78be3}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LL\LL.csproj">
       <Project>{53f9cb22-6576-48ae-b33b-fbed216722fe}</Project>
       <Name>LL</Name>

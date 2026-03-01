@@ -20,6 +20,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Debug\BaseUI.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,13 +32,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BLL">
-      <HintPath>..\BLL\bin\Debug\BLL.dll</HintPath>
+      <HintPath>..\..\..\‏‏Project - نسخة\StoresManager\Company Framework\BLL.dll</HintPath>
     </Reference>
     <Reference Include="Core">
       <HintPath>..\Core\bin\Debug\Core.dll</HintPath>
-    </Reference>
-    <Reference Include="LL">
-      <HintPath>..\LL\bin\Debug\LL.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -65,6 +63,12 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LL\LL.csproj">
+      <Project>{53f9cb22-6576-48ae-b33b-fbed216722fe}</Project>
+      <Name>LL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

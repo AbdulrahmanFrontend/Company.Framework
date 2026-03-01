@@ -1,13 +1,8 @@
 ﻿using LL;
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Core;
-using DataAccessSettings;
+using System.Configuration;
 
 namespace DAL
 {
@@ -32,11 +27,14 @@ namespace DAL
         }
         private static SqlConnection _GetConnection()
         {
-            if (string.IsNullOrWhiteSpace(clsDataAccessSettings.ConnectionString))
-            {
-                throw new InvalidOperationException("Connection string is not set.");
-            }
-            return new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string cs = ConfigurationManager
+                        .ConnectionStrings["DefaultConnection"]
+                        ?.ConnectionString;
+
+            if (string.IsNullOrWhiteSpace(cs))
+                throw new InvalidOperationException("invalid connection string");
+
+            return new SqlConnection(cs);
         }
         public static DataTable GetDataTable(string query, 
             SqlParameter[] parameters = null)
